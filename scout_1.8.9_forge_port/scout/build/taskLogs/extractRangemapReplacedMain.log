@@ -1,9 +1,13 @@
 Symbol range map extraction starting
-Processing 10 files
+Processing 14 files
 processing me/scout/Scout.java
 processing me/scout/config/ScoutConfig.java
+processing me/scout/gui/ScoutGui.java
 processing me/scout/interpolation/EaseOutCirc.java
+processing me/scout/keybind/KeybindHandler.java
+processing me/scout/modules/JumpCircles.java
 processing me/scout/modules/TargetHud.java
+processing me/scout/modules/Trails.java
 processing me/scout/particle/Particle2D.java
 processing me/scout/render/RenderHelper2D.java
 processing me/scout/render/TargetHudRenderer.java

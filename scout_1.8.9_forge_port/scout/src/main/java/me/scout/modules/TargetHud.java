@@ -11,6 +11,7 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.awt.Color;
@@ -26,6 +27,8 @@ public class TargetHud {
 
     public static EaseOutCirc headAnimation = new EaseOutCirc();
     public static EntityLivingBase target = null;
+    public static long lastHitTime = 0;
+    public static final long HIT_DISPLAY_MS = 3000;
     private static EntityLivingBase lastTarget = null;
 
     private static float displayedHealth = 0f;
@@ -230,4 +233,12 @@ public class TargetHud {
     }
 
     public enum Style { MINI, TINY, NORMAL, ARES, ALT_1 }
+
+    @SubscribeEvent
+    public void onAttack(AttackEntityEvent event) {
+        if (event.entityPlayer != mc.thePlayer) return;
+        if (event.target == target) {
+            lastHitTime = System.currentTimeMillis();
+        }
+    }
 }

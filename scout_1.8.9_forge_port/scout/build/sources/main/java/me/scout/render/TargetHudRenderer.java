@@ -86,7 +86,7 @@ public class TargetHudRenderer {
             org.lwjgl.opengl.GL11.glTranslatef(headCX, headCY, 0);
             org.lwjgl.opengl.GL11.glScalef(1 - hurtPct / 20f, 1 - hurtPct / 20f, 1f);
             org.lwjgl.opengl.GL11.glTranslatef(-headCX, -headCY, 0);
-            RenderHelper2D.drawPlayerHead(info, x + 2.5f, y + 2.5f, 30, 5, hurtPct);
+            RenderHelper2D.drawPlayerHead(info, x + 2.5f, y + 2.5f, 21, 5, hurtPct);
         });
 
         // Particles
@@ -105,7 +105,9 @@ public class TargetHudRenderer {
         FontRenderer fr = mc.fontRendererObj;
         String hpText = String.valueOf(Math.round(10.0 * health) / 10.0);
         Color textCol = RenderHelper2D.applyOpacity(new Color(Palette.getTextColor(), true), animationFactor);
-        fr.drawStringWithShadow(hpText, x + 65 - fr.getStringWidth(hpText) / 2f, y + 27, textCol.getRGB());
+        if (System.currentTimeMillis() - me.scout.modules.TargetHud.lastHitTime < me.scout.modules.TargetHud.HIT_DISPLAY_MS) {
+            fr.drawStringWithShadow(hpText, x + 65 - fr.getStringWidth(hpText) / 2f, y + 27, textCol.getRGB());
+        }
         fr.drawStringWithShadow(displayName, x + 38, y + 5, textCol.getRGB());
 
         // Items (scale 0.5)
@@ -141,7 +143,7 @@ public class TargetHudRenderer {
             org.lwjgl.opengl.GL11.glTranslatef(headCX, headCY, 0);
             org.lwjgl.opengl.GL11.glScalef(1 - hurtPct / 15f, 1 - hurtPct / 15f, 1f);
             org.lwjgl.opengl.GL11.glTranslatef(-headCX, -headCY, 0);
-            RenderHelper2D.drawPlayerHead(info, x + 3.5f, y + 3.5f, 40, 7, hurtPct);
+            RenderHelper2D.drawPlayerHead(info, x + 3.5f, y + 3.5f, 28, 7, hurtPct);
         });
 
         renderParticles(x, y, target, c1, c3, 1.0f);
@@ -157,7 +159,9 @@ public class TargetHudRenderer {
         FontRenderer fr = mc.fontRendererObj;
         Color textCol = RenderHelper2D.applyOpacity(new Color(Palette.getTextColor(), true), animationFactor);
         String hpText = String.valueOf(Math.round(10.0 * health) / 10.0);
-        fr.drawStringWithShadow(hpText, x + 92 - fr.getStringWidth(hpText) / 2f, y + 35, textCol.getRGB());
+        if (System.currentTimeMillis() - me.scout.modules.TargetHud.lastHitTime < me.scout.modules.TargetHud.HIT_DISPLAY_MS) {
+            fr.drawStringWithShadow(hpText, x + 92 - fr.getStringWidth(hpText) / 2f, y + 35, textCol.getRGB());
+        }
         fr.drawStringWithShadow(displayName, x + 48, y + 7, textCol.getRGB());
 
         renderItems(target, x + 48, y + 15, 12f, 0.75f, animationFactor);
@@ -221,7 +225,9 @@ public class TargetHudRenderer {
             fr.drawStringWithShadow(finalDisplayName, 0, 0, textCol.getRGB());
         });
         // "HP: X.X"
-        fr.drawStringWithShadow("HP: " + (Math.round(10.0 * health) / 10.0), x + 48, y + 20, textCol.getRGB());
+        if (System.currentTimeMillis() - me.scout.modules.TargetHud.lastHitTime < me.scout.modules.TargetHud.HIT_DISPLAY_MS) {
+            fr.drawStringWithShadow("HP: " + (Math.round(10.0 * health) / 10.0), x + 48, y + 20, textCol.getRGB());
+        }
     }
 
     // ── ALT_1 ─────────────────────────────────────────────────────────────────
