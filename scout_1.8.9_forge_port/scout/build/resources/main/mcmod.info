@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "scout",
+    "name": "Scout",
+    "description": "Scout - ported from SoupAPI for Minecraft 1.8.9 Forge",
+    "version": "1.0.0",
+    "mcversion": "1.8.9",
+    "url": "",
+    "authorList": ["Pa-dej (original SoupAPI), Scout port"],
+    "credits": "Original SoupAPI by Pa-dej",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

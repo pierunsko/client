@@ -1,0 +1,12 @@
+Symbol range map extraction starting
+Processing 10 files
+processing me/scout/Scout.java
+processing me/scout/config/ScoutConfig.java
+processing me/scout/interpolation/EaseOutCirc.java
+processing me/scout/modules/TargetHud.java
+processing me/scout/particle/Particle2D.java
+processing me/scout/render/RenderHelper2D.java
+processing me/scout/render/TargetHudRenderer.java
+processing me/scout/utils/MathUtility.java
+processing me/scout/utils/OklabUtils.java
+processing me/scout/utils/Palette.java
